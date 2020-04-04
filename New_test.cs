@@ -1,7 +1,7 @@
 using system;
 public class test
 {
-public static void main(string[] args)
+public static void not_main(string[] args)
 {
 Console.WriteLine("Hello");
 }
