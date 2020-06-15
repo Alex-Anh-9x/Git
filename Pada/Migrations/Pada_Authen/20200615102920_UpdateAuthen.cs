@@ -1,13 +1,13 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Pada.Migrations.Pada_Authentication
+namespace Pada.Migrations.Pada_Authen
 {
-    public partial class UpdateAuthentication : Migration
+    public partial class UpdateAuthen : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
+           /* migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
                 {
@@ -189,7 +189,7 @@ namespace Pada.Migrations.Pada_Authentication
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true,
-                filter: "[NormalizedUserName] IS NOT NULL");
+                filter: "[NormalizedUserName] IS NOT NULL"); */
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

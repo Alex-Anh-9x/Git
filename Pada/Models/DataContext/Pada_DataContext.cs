@@ -582,7 +582,7 @@ namespace Pada.Models
 
             modelBuilder.Entity<UserTable>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.Email).HasName("Email") ;
 
                 entity.Property(e => e.AccessToken)
                     .HasMaxLength(50)

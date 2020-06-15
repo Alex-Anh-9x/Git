@@ -6,17 +6,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Pada.Areas.Identity.Data;
 
 namespace Pada.Areas.Identity.Pages.Account.Manage
 {
     public partial class IndexModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<PadaUser> _userManager;
+        private readonly SignInManager<PadaUser> _signInManager;
 
         public IndexModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager)
+            UserManager<PadaUser> userManager,
+            SignInManager<PadaUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -34,14 +35,13 @@ namespace Pada.Areas.Identity.Pages.Account.Manage
         {
             [Required]
             [Display(Name = "Gender")]
-
-            public DateTime DOB { get; set; }
+            public string Gender { get; set; }
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
         }
 
-        private async Task LoadAsync(IdentityUser user)
+        private async Task LoadAsync(PadaUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
@@ -50,7 +50,8 @@ namespace Pada.Areas.Identity.Pages.Account.Manage
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+                Gender = user.Gender
             };
         }
 
@@ -90,6 +91,11 @@ namespace Pada.Areas.Identity.Pages.Account.Manage
                     return RedirectToPage();
                 }
             }
+            if (Input.Gender != user.Gender)
+            {
+                user.Gender = Input.Gender;
+            }
+            await _userManager.UpdateAsync(user);
 
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";

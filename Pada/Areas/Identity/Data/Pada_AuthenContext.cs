@@ -5,12 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Pada.Areas.Identity.Data;
 
 namespace Pada.Data
 {
-    public class Pada_AuthenticationContext : IdentityDbContext<IdentityUser>
+    public class Pada_AuthenContext : IdentityDbContext<PadaUser>
     {
-        public Pada_AuthenticationContext(DbContextOptions<Pada_AuthenticationContext> options)
+        public Pada_AuthenContext(DbContextOptions<Pada_AuthenContext> options)
             : base(options)
         {
         }
