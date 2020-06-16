@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Pada.Areas.Identity.Data;
+using Pada.Models;
 
 namespace Pada.Areas.Identity.Pages.Account.Manage
 {
@@ -80,7 +81,7 @@ namespace Pada.Areas.Identity.Pages.Account.Manage
                 await LoadAsync(user);
                 return Page();
             }
-
+            //Get phone number of the current user using _userManager
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
             if (Input.PhoneNumber != phoneNumber)
             {
@@ -90,11 +91,30 @@ namespace Pada.Areas.Identity.Pages.Account.Manage
                     StatusMessage = "Unexpected error when trying to set phone number.";
                     return RedirectToPage();
                 }
+                //Update phone number in Pada Data
+                //Add new instance to save changes
+                var newUpdatedUser = new UserTable() { Email = user.Email };
+                newUpdatedUser.ContactNo = user.PhoneNumber;
+                using (var updateUserContext = new Pada_DataContext())
+                {
+                    updateUserContext.Update<UserTable>(newUpdatedUser);
+                    await updateUserContext.SaveChangesAsync();
+                }
             }
             if (Input.Gender != user.Gender)
             {
                 user.Gender = Input.Gender;
+                //Update gender in Pada_Data, using update entity framework with new record without query, using disconnected scenario
+                //Add new instance to save changes
+                var newUpdatedUser = new UserTable() { Email = user.Email };
+                newUpdatedUser.Gender = (user.Gender == "Male") ? 1 : (user.Gender == "Female") ? 2 : 3;
+                using (var updateUserContext = new Pada_DataContext())
+                {
+                    updateUserContext.Update<UserTable>(newUpdatedUser);
+                    await updateUserContext.SaveChangesAsync();
+                }
             }
+
             await _userManager.UpdateAsync(user);
 
             await _signInManager.RefreshSignInAsync(user);

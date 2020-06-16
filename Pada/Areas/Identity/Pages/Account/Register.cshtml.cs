@@ -98,10 +98,10 @@ namespace Pada.Areas.Identity.Pages.Account
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
                     using (var datacontext = new Pada_DataContext())
                     {
-                        var newUser = new UserTable() { Gender = (user.Gender == "Male") ? 1 : (user.Gender == "Female") ? 2 : 3, Email = user.Email };
+                        var newUser = new UserTable() { Gender = (user.Gender == "Male") ? 1 : (user.Gender == "Female") ? 2 : 3, Email = user.Email, DateJoined = DateTime.UtcNow };
                         //newUser.Gender = (user.Gender == "Male") ? 1 : (user.Gender == "Female") ? 2 : 3;
-                        datacontext.UserTable.Add(newUser);
-                        datacontext.SaveChanges();
+                        await datacontext.UserTable.AddAsync(newUser);
+                        await datacontext.SaveChangesAsync();
                     }
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
