@@ -196,3 +196,4 @@ C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\obj\Debug\netcoreapp3.1\Pada.csp
 C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\obj\Debug\netcoreapp3.1\staticwebassets\Pada.StaticWebAssets.Manifest.cache
 C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\obj\Debug\netcoreapp3.1\staticwebassets\Pada.StaticWebAssets.xml
 C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\obj\Debug\netcoreapp3.1\Pada.genruntimeconfig.cache
+C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\obj\Debug\netcoreapp3.1\Pada.csprojAssemblyReference.cache
