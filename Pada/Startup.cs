@@ -12,6 +12,7 @@ using Pada.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Pada.Models;
 
 namespace Pada
 {
@@ -33,6 +34,12 @@ namespace Pada
             //services.adddefaultidentity<identityuser>(options => options.signin.requireconfirmedaccount = true)
             //    .addentityframeworkstores<applicationdbcontext>();
             //services.AddControllersWithViews();
+            services.AddDbContext<Pada_DataContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            //    .AddEntityFrameworkStores<Pada_DataContext>();
+            services.AddControllersWithViews();
             services.AddRazorPages();
         }
 

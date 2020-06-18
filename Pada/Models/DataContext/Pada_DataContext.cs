@@ -401,7 +401,7 @@ namespace Pada.Models
 
             modelBuilder.Entity<PendingPhotoRequest>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.TransactionId).HasName("Transaction ID") ;
 
                 entity.Property(e => e.AnyPhotoPath)
                     .HasMaxLength(120)

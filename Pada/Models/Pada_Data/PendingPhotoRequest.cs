@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Pada.Models
 {
     public partial class PendingPhotoRequest
     {
+        [Key]
         public int TransactionId { get; set; }
         public string Email { get; set; }
         public int Type { get; set; }

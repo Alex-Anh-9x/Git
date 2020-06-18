@@ -85,6 +85,13 @@ namespace Pada.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+                    using (var datacontext = new Pada_DataContext())
+                    {
+                        var newUser = new UserTable() { Gender = (user.Gender == "Male") ? 1 : (user.Gender == "Female") ? 2 : 3, Email = user.Email, DateJoined = DateTime.UtcNow, AccountStatus = 2, UserLevel = 2};
+                        //newUser.Gender = (user.Gender == "Male") ? 1 : (user.Gender == "Female") ? 2 : 3;
+                        await datacontext.UserTable.AddAsync(newUser);
+                        await datacontext.SaveChangesAsync();
+                    }
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
@@ -96,13 +103,7 @@ namespace Pada.Areas.Identity.Pages.Account
 
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-                    using (var datacontext = new Pada_DataContext())
-                    {
-                        var newUser = new UserTable() { Gender = (user.Gender == "Male") ? 1 : (user.Gender == "Female") ? 2 : 3, Email = user.Email, DateJoined = DateTime.UtcNow };
-                        //newUser.Gender = (user.Gender == "Male") ? 1 : (user.Gender == "Female") ? 2 : 3;
-                        await datacontext.UserTable.AddAsync(newUser);
-                        await datacontext.SaveChangesAsync();
-                    }
+
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
                         return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });

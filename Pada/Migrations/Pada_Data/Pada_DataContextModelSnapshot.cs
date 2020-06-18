@@ -563,6 +563,12 @@ namespace Pada.Migrations
 
             modelBuilder.Entity("Pada.Models.PendingPhotoRequest", b =>
                 {
+                    b.Property<int>("TransactionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("TransactionID")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
                     b.Property<int?>("AcceptedVote")
                         .HasColumnType("int");
 
@@ -603,17 +609,14 @@ namespace Pada.Migrations
                     b.Property<int?>("RejectedVote")
                         .HasColumnType("int");
 
-                    b.Property<int>("TransactionId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("TransactionID")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
                     b.Property<int?>("VoteRequired")
                         .HasColumnType("int");
+
+                    b.HasKey("TransactionId")
+                        .HasName("Transaction ID");
 
                     b.ToTable("PendingPhotoRequest");
                 });
