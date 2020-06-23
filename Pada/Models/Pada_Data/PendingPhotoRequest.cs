@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Pada.Models
 {
@@ -19,5 +22,13 @@ namespace Pada.Models
         public string FacePhotoPath { get; set; }
         public string AnyPhotoPath { get; set; }
         public int? PendingVote { get; set; }
+        [Column(TypeName = "nvarchar(100)")]
+        [DisplayName("Image Name")]
+        public string ImageName { get; set; }
+
+        [NotMapped]
+        [DisplayName("Upload File")]
+        public IFormFile ImageFile { get; set; }
     }
+
 }

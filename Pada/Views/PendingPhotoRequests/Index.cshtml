@@ -1,8 +1,5 @@
 ﻿@model IEnumerable<Pada.Models.PendingPhotoRequest>
 
-@{
-    Layout = null;
-}
 
 <!DOCTYPE html>
 
@@ -22,73 +19,22 @@
                 @Html.DisplayNameFor(model => model.Email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OldPhotoPath)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NewPhotoPath)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AcceptedVote)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RejectedVote)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.VoteRequired)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FullPhotoPath)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FacePhotoPath)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AnyPhotoPath)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PendingVote)
+                @Html.DisplayNameFor(model => model.ImageName)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
+    if (item.Email == ViewBag.CurrentUserEmail)
+    {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OldPhotoPath)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NewPhotoPath)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AcceptedVote)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RejectedVote)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VoteRequired)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullPhotoPath)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FacePhotoPath)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnyPhotoPath)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PendingVote)
+                <img src=@item.ImageName alt="alternatetext" style="width:256px;height:256px;">
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.TransactionId">Edit</a> |
@@ -96,8 +42,10 @@
                 <a asp-action="Delete" asp-route-id="@item.TransactionId">Delete</a>
             </td>
         </tr>
+    }
 }
     </tbody>
 </table>
 </body>
 </html>
+
