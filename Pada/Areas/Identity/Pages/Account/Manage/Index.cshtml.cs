@@ -83,6 +83,11 @@ namespace Pada.Areas.Identity.Pages.Account.Manage
             }
             //Get phone number of the current user using _userManager
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+            var datacontext = new Pada_DataContext();
+            var newUpdatedUser = datacontext.UserTable
+                    .Where(u => u.Email == user.Email)
+                    .FirstOrDefault();
+            newUpdatedUser.UserLevel = 4;
             if (Input.PhoneNumber != phoneNumber)
             {
                 var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
@@ -93,12 +98,11 @@ namespace Pada.Areas.Identity.Pages.Account.Manage
                 }
                 //Update phone number in Pada Data
                 //Add new instance to save changes
-                var newUpdatedUser = new UserTable() { Email = user.Email };
                 newUpdatedUser.ContactNo = user.PhoneNumber;
-                using (var updateUserContext = new Pada_DataContext())
+                using (var datacontext1 = new Pada_DataContext())
                 {
-                    updateUserContext.Update<UserTable>(newUpdatedUser);
-                    await updateUserContext.SaveChangesAsync();
+                    datacontext1.Update<UserTable>(newUpdatedUser);
+                    await datacontext1.SaveChangesAsync();
                 }
             }
             if (Input.Gender != user.Gender)
@@ -106,15 +110,19 @@ namespace Pada.Areas.Identity.Pages.Account.Manage
                 user.Gender = Input.Gender;
                 //Update gender in Pada_Data, using update entity framework with new record without query, using disconnected scenario
                 //Add new instance to save changes
-                var newUpdatedUser = new UserTable() { Email = user.Email };
                 newUpdatedUser.Gender = (user.Gender == "Male") ? 1 : (user.Gender == "Female") ? 2 : 3;
-                using (var updateUserContext = new Pada_DataContext())
+                using (var datacontext2 = new Pada_DataContext())
                 {
-                    updateUserContext.Update<UserTable>(newUpdatedUser);
-                    await updateUserContext.SaveChangesAsync();
+                    datacontext2.Update<UserTable>(newUpdatedUser);
+                    await datacontext2.SaveChangesAsync();
                 }
             }
 
+            using (var datacontext3 = new Pada_DataContext())
+            {
+                datacontext3.Update<UserTable>(newUpdatedUser);
+                await datacontext3.SaveChangesAsync();
+            }
             await _userManager.UpdateAsync(user);
 
             await _signInManager.RefreshSignInAsync(user);

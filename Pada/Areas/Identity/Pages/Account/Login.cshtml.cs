@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Pada.Areas.Identity.Data;
+using Pada.Models;
 
 namespace Pada.Areas.Identity.Pages.Account
 {
@@ -83,8 +84,20 @@ namespace Pada.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User logged in.");
-                    return LocalRedirect("/Identity/Account/Manage");
+                    var datacontext = new Pada_DataContext();
+                    var newUser = datacontext.UserTable
+                            .Where(s => s.Email == Input.Email)
+                            .FirstOrDefault();
+                    switch (newUser.UserLevel)
+                    {
+                        case 3:
+                            return LocalRedirect("/Identity/Account/Manage");
+                        case 4:
+                            return LocalRedirect("/PendingPhotoRequests");
+                        default:
+                            return RedirectToPage("./Lockout");
+
+                    }
                 }
                 if (result.RequiresTwoFactor)
                 {

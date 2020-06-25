@@ -87,7 +87,7 @@ namespace Pada.Areas.Identity.Pages.Account
                     _logger.LogInformation("User created a new account with password.");
                     using (var datacontext = new Pada_DataContext())
                     {
-                        var newUser = new UserTable() { Gender = (user.Gender == "Male") ? 1 : (user.Gender == "Female") ? 2 : 3, Email = user.Email, DateJoined = DateTime.UtcNow, AccountStatus = 2, UserLevel = 2};
+                        var newUser = new UserTable() { Gender = (user.Gender == "Male") ? 1 : (user.Gender == "Female") ? 2 : 3, Email = user.Email, DateJoined = DateTime.UtcNow, AccountStatus = 2, UserLevel = 3};
                         //newUser.Gender = (user.Gender == "Male") ? 1 : (user.Gender == "Female") ? 2 : 3;
                         await datacontext.UserTable.AddAsync(newUser);
                         await datacontext.SaveChangesAsync();
