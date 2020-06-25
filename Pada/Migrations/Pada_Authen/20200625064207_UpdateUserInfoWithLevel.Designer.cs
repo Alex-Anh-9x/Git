@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Pada.Data;
 
 namespace Pada.Migrations.Pada_Authen
 {
     [DbContext(typeof(Pada_AuthenContext))]
-    partial class Pada_AuthenContextModelSnapshot : ModelSnapshot
+    [Migration("20200625064207_UpdateUserInfoWithLevel")]
+    partial class UpdateUserInfoWithLevel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

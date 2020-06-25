@@ -63,7 +63,6 @@ namespace Pada.Areas.Identity.Pages.Account.Manage
             {
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
-
             await LoadAsync(user);
             return Page();
         }
@@ -88,6 +87,7 @@ namespace Pada.Areas.Identity.Pages.Account.Manage
                     .Where(u => u.Email == user.Email)
                     .FirstOrDefault();
             newUpdatedUser.UserLevel = 4;
+            user.UserLevel = 4;
             if (Input.PhoneNumber != phoneNumber)
             {
                 var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);

@@ -11,6 +11,7 @@ namespace Pada.Areas.Identity.Data
     {
         [PersonalData]
         public string Gender { get; set; }
-
+        [PersonalData]
+        public int UserLevel { get; set; }
     }
 }
