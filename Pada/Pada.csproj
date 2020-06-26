@@ -12,6 +12,8 @@
     <Compile Remove="Migrations\Pada_Data\20200618153553_addPKPendingPhotoRequest.Designer.cs" />
     <Compile Remove="Migrations\Pada_Data\20200622155602_addImageField.cs" />
     <Compile Remove="Migrations\Pada_Data\20200622155602_addImageField.Designer.cs" />
+    <Compile Remove="Migrations\Pada_Data\20200625101214_UpdateImageURL3.cs" />
+    <Compile Remove="Migrations\Pada_Data\20200625101214_UpdateImageURL3.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

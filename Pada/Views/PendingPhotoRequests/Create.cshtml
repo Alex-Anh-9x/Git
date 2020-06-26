@@ -7,19 +7,25 @@
 
 <h4>ImageModel</h4>
 <hr />
+
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="ImageName" class="control-label"></label>
-                <input asp-for="ImageName" class="form-control" />
-                <span asp-validation-for="ImageName" class="text-danger"></span>
+                <label asp-for="FullImageFile" class="control-label"></label>
+                <input asp-for="FullImageFile" accept="image/*" id="fullImageFile" required />
+                <span asp-validation-for="FullImageFile" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ImageFile" class="control-label"></label>
-                <input asp-for="ImageFile" accept="image/*" />
-                <span asp-validation-for="ImageFile" class="text-danger"></span>
+                <label asp-for="FaceImageFile" class="control-label"></label>
+                <input asp-for="FaceImageFile" accept="image/*" id="faceImageFile" required />
+                <span asp-validation-for="FaceImageFile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnyImageFile" class="control-label"></label>
+                <input asp-for="AnyImageFile" accept="image/*" id="anyImageFile" required />
+                <span asp-validation-for="AnyImageFile" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -27,11 +33,6 @@
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
