@@ -102,48 +102,15 @@ namespace Pada.Views
                 {
                     return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
                 }
-                //string wwwRootPath = _hostEnvironment.WebRootPath;
-                //string fileName = Path.GetFileNameWithoutExtension(fullImageFile.FileName);
-                //string extension = Path.GetExtension(pendingPhotoRequest.ImageFile.FileName);
-                //pendingPhotoRequest.ImageName = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                ////Get current user email
-                //pendingPhotoRequest.Email = user.Email;
-                //string path = Path.Combine(wwwRootPath + "/image/", fileName);
-                //using (var filestream = new FileStream(path, FileMode.Create))
-                //{
-                //    await pendingPhotoRequest.ImageFile.CopyToAsync(filestream);
-                //}
-                //string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=chinhlanhuvaycf7e180a308;AccountKey=ufsUzB/+lb4VQX2QDXECQO9ZRVWaxc2G6nKEQD1Bo40Px7n9Ajs5pJHWB0nmKfVFZnvaFaacsh/Trmtrci+U+w==;EndpointSuffix=core.windows.net";
-                //CloudStorageAccount storageacc = CloudStorageAccount.Parse(storageConnectionString);
-
-                //CloudBlobClient blobClient = storageacc.CreateCloudBlobClient();
-                //CloudBlobContainer container = blobClient.GetContainerReference("vhds");
-                //await container.CreateIfNotExistsAsync();
-
-                //CloudBlockBlob blockBlob = container.GetBlockBlobReference(pendingPhotoRequest.ImageName);
-
-                //using (var filestream = System.IO.File.OpenRead(path))
-                //{
-                //    await blockBlob.UploadFromStreamAsync(filestream);
-                //}
-                //var blobUrl = blockBlob.Uri.AbsoluteUri;
-                //pendingPhotoRequest.ImageName = blobUrl;
-                //_context.Add(pendingPhotoRequest);
-                //await _context.SaveChangesAsync();
                 string fullImageLink = await pendingPhotoRequest.UploadPhoto(fullImageFile, _hostEnvironment);
                 string faceImageLink = await pendingPhotoRequest.UploadPhoto(faceImageFile, _hostEnvironment);
                 string anyImageLink = await pendingPhotoRequest.UploadPhoto(anyImageFile, _hostEnvironment);
                 var updateContext = new Pada_DataContext();
-                //var email = new SqlParameter("@email", user.Email);
-                //var password = new SqlParameter("@password", null);
-                //var fullphoto = new SqlParameter("@fullphoto", fullImageLink);
-                //var facephoto = new SqlParameter("@facephoto", faceImageLink);
-                //var anyphoto = new SqlParameter("@anyphoto", anyImageLink);
                 var output = new SqlParameter();
                 output.ParameterName = "@result";
                 output.SqlDbType = SqlDbType.Int;
                 output.Direction = ParameterDirection.Output;
-                updateContext.Database.ExecuteSqlInterpolated($"EXEC [dbo].[usp_minh_photorequest_createnewphoto] @email={user.Email},@password={null},@fullphoto={fullImageLink},@facephoto ={faceImageLink},@anyphoto={anyImageLink}, @result = {output} OUT");
+                updateContext.Database.ExecuteSqlInterpolated($"EXEC [dbo].[usp_minh_photorequest_createnewphoto] @email={user.Email},@password={"123456"},@fullphoto={fullImageLink},@facephoto ={faceImageLink},@anyphoto={anyImageLink}, @result = {output} OUT");
                 
                 return RedirectToAction(nameof(Index));
             }
@@ -254,6 +221,10 @@ namespace Pada.Views
         private bool PendingPhotoRequestExists(int id)
         {
             return _context.PendingPhotoRequest.Any(e => e.TransactionId == id);
+        }
+        public IActionResult General()
+        {
+            return View();
         }
     }
 }

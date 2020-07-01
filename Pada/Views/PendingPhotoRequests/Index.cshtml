@@ -16,12 +16,17 @@
     <thead>
         <tr>
             @*<th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>*@
+            @Html.DisplayNameFor(model => model.Email)
+        </th>*@
             <th>
-                <center>Image</center>
+                <center>Face Photo</center>
             </th>
-            <th></th>
+            <th>
+                <center>Random Photo</center>
+            </th>
+            <th>
+                <center>Full Photo</center>
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -31,10 +36,16 @@
     {
         <tr>
             @*<td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>*@
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>*@
             <td>
                 <center><img src=@item.FacePhotoPath alt="alternatetext" style="width:256px;height:256px;"></center>
+            </td>
+            <td>
+                <center><img src=@item.AnyPhotoPath alt="alternatetext" style="width:256px;height:256px;"></center>
+            </td>
+            <td>
+                <center><img src=@item.FullPhotoPath alt="alternatetext" style="width:256px;height:256px;"></center>
             </td>
             <td>
                 @*<a asp-action="Edit" asp-route-id="@item.TransactionId">Edit</a> |*@

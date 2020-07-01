@@ -127,7 +127,7 @@ namespace Pada.Areas.Identity.Pages.Account.Manage
 
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";
-            return RedirectToAction("Create","PendingPhotoRequests");
+            return RedirectToAction("General","PendingPhotoRequests");
         }
     }
 }
