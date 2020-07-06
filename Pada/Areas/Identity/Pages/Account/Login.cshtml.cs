@@ -93,7 +93,7 @@ namespace Pada.Areas.Identity.Pages.Account
                         case 3:
                             return LocalRedirect("/Identity/Account/Manage");
                         case 4:
-                            return LocalRedirect("/PendingPhotoRequests");
+                            return LocalRedirect("/PendingPhotoRequests/General");
                         default:
                             return RedirectToPage("./Lockout");
 

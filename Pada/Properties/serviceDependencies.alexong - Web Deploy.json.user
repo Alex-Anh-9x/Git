@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "storage1": {
+      "restored": true,
+      "restoreTime": "2020-07-04T15:27:34.7585759Z"
+    },
+    "mssql3": {
+      "restored": true,
+      "restoreTime": "2020-07-04T15:29:46.3581549Z"
+    },
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2020-07-04T15:28:50.9877854Z"
+    }
+  },
+  "parameters": {
+    "resourceGroup": {
+      "Type": "resourceGroup",
+      "Value": "AlexTest"
+    },
+    "subscriptionId": {
+      "Type": "subscription",
+      "Value": "ab0f4680-7d55-4590-85c8-a982a24fac6a"
+    }
+  }
+}

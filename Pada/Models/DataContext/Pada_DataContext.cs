@@ -42,7 +42,7 @@ namespace Pada.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=localhost;Initial Catalog=Pada_Data;Integrated Security=True;");
+                optionsBuilder.UseSqlServer("Server=tcp:alexong.database.windows.net,1433;Initial Catalog=Pada_Data;Persist Security Info=False;User ID=anh.ong-tuan@tek-experts.com@alexong;Password=Anlac1997$;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
         }
 

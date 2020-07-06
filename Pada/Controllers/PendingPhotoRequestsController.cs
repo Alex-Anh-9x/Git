@@ -34,7 +34,7 @@ namespace Pada.Views
             SignInManager<PadaUser> signInManager)
         {
             _context = context;
-            this._hostEnvironment = hostEnvironment; 
+            this._hostEnvironment = hostEnvironment;
             _userManager = userManager;
             _signInManager = signInManager;
         }
@@ -47,7 +47,7 @@ namespace Pada.Views
             {
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
-            if(user.UserLevel <4)
+            if (user.UserLevel < 4)
             {
                 return NotFound($"User with this ID '{_userManager.GetUserId(User)}' can not see the content of this page.");
             }
@@ -111,8 +111,8 @@ namespace Pada.Views
                 output.SqlDbType = SqlDbType.Int;
                 output.Direction = ParameterDirection.Output;
                 updateContext.Database.ExecuteSqlInterpolated($"EXEC [dbo].[usp_minh_photorequest_createnewphoto] @email={user.Email},@password={"123456"},@fullphoto={fullImageLink},@facephoto ={faceImageLink},@anyphoto={anyImageLink}, @result = {output} OUT");
-                
-                return RedirectToAction(nameof(Index));
+
+                return RedirectToAction("Index", "PhotoCheck", new { area = "" });
             }
             return View(pendingPhotoRequest);
         }

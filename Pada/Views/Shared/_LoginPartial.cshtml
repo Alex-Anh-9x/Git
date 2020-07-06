@@ -13,9 +13,12 @@
             </li>
             @if (UserManager.FindByNameAsync(UserManager.GetUserName(User)).Result.UserLevel >= 4)
             {
-            <li class="nav-item">
-                <a class="nav-link btn btn-link text-dark" asp-controller="PendingPhotoRequests" asp-action="General" title="Manage">Photo Check</a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-link text-dark" asp-controller="PendingPhotoRequests" asp-action="General" title="Manage">Upload Photo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-link text-dark" asp-controller="PhotoCheck" asp-action="Index" title="Manage">Photo Check</a>
+                </li>
             }
             <li class="nav-item">
                 <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">

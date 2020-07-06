@@ -1,12 +1,12 @@
 {
   "dependencies": {
+    "storage1": {
+      "type": "storage",
+      "connectionId": "alexong"
+    },
     "mssql1": {
       "type": "mssql",
       "connectionId": "DefaultConnection"
-    },
-    "mssql2": {
-      "type": "mssql",
-      "connectionId": "Pada_AuthenticationContextConnection"
     },
     "mssql3": {
       "type": "mssql",

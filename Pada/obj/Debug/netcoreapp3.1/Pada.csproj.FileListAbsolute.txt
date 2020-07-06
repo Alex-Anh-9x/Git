@@ -225,7 +225,14 @@ C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\bin\Debug\netcoreapp3.1\Microsof
 C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\bin\Debug\netcoreapp3.1\Azure.Core.dll
 C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\bin\Debug\netcoreapp3.1\Azure.Storage.Blobs.dll
 C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\bin\Debug\netcoreapp3.1\Azure.Storage.Common.dll
+C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\obj\Debug\netcoreapp3.1\Razor\Views\PendingPhotoRequests\General.cshtml.g.cs
+C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\bin\Debug\netcoreapp3.1\Azure.Storage.Queues.dll
+C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.alexong - Web Deploy.json
+C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\bin\Debug\netcoreapp3.1\Azure.Identity.dll
+C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\bin\Debug\netcoreapp3.1\Azure.Storage.Files.Shares.dll
+C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Azure.dll
 C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\obj\Debug\netcoreapp3.1\Pada.csproj.CoreCompileInputs.cache
 C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\obj\Debug\netcoreapp3.1\Pada.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\obj\Debug\netcoreapp3.1\Pada.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\obj\Debug\netcoreapp3.1\Razor\Views\PendingPhotoRequests\General.cshtml.g.cs
+C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\obj\Debug\netcoreapp3.1\Razor\Views\PhotoCheck\NewPhotoCheck.cshtml.g.cs
+C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\obj\Debug\netcoreapp3.1\Razor\Views\PhotoCheck\Index.cshtml.g.cs
