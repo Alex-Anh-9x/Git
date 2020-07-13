@@ -88,6 +88,10 @@
               "target": "Package",
               "version": "[3.2.3, )"
             },
+            "ServiceStack": {
+              "target": "Package",
+              "version": "[5.9.0, )"
+            },
             "System.Runtime": {
               "target": "Package",
               "version": "[4.3.1, )"

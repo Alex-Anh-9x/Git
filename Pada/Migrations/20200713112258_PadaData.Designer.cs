@@ -10,8 +10,8 @@ using Pada.Models;
 namespace Pada.Migrations
 {
     [DbContext(typeof(Pada_DataContext))]
-    [Migration("20200704151423_TetAzure2")]
-    partial class TetAzure2
+    [Migration("20200713112258_PadaData")]
+    partial class PadaData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -10,8 +10,8 @@ using Pada.Data;
 namespace Pada.Migrations.Pada_Authen
 {
     [DbContext(typeof(Pada_AuthenContext))]
-    [Migration("20200704150907_TetAzure1")]
-    partial class TetAzure1
+    [Migration("20200713112342_PadaAuthen")]
+    partial class PadaAuthen
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

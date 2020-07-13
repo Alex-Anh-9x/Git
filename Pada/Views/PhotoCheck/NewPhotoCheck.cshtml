@@ -12,12 +12,13 @@
     <p>
         <a asp-action="Create">Create New</a>
     </p>
+    @{ var randomUser = Model.Where(u => u.Email != ViewBag.CurrentUserEmail).ToArray()[0];}
+    <p>
+        @randomUser.Email;
+    </p>
     <table class="table" border="1">
         <thead>
             <tr>
-                @*<th>
-                        @Html.DisplayNameFor(model => model.Email)
-                    </th>*@
                 <th>
                     <center>Face Photo</center>
                 </th>
@@ -30,12 +31,7 @@
             </tr>
         </thead>
         <tbody>
-            @*@Model.ToList();*@
-            @{ var randomUser = Model.Where(u => u.Email != ViewBag.CurrentUserEmail).ToArray()[(new Random()).Next(0, Model.ToArray().Length)];}
             <tr>
-                @*<td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>*@
                 <td>
                     <center><img src=@randomUser.FacePhotoPath alt="alternatetext" style="width:256px;height:256px;"></center>
                 </td>
@@ -49,6 +45,12 @@
             }
         </tbody>
     </table>
+    <p>
+        <a asp-action="Approve" asp-route-id="@Model.Where(m=>m.Email == ViewBag.CurrentUserEmail).FirstOrDefault().TransactionId">Approve</a>
+    </p>
+    <p>
+        <a asp-action="Reject" asp-route-id="@Model.Where(m=>m.Email == ViewBag.CurrentUserEmail).FirstOrDefault().TransactionId">Reject</a>
+    </p>
 </body>
 </html>
 

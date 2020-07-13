@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
+using ServiceStack.DataAnnotations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,8 @@ namespace Pada.Models
     {
         [Key]
         public int TransactionId { get; set; }
+        //[Index(Unique = true)]
+        //[MaxLength(255)] // for code-first implementations
         public string Email { get; set; }
         public int Type { get; set; }
         public string OldPhotoPath { get; set; }

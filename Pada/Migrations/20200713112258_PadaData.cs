@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Pada.Migrations
 {
-    public partial class TetAzure2 : Migration
+    public partial class PadaData : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

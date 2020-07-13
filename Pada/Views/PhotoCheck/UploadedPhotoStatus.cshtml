@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Pada.Models.PendingPhotoRequest>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Uploaded Photo Status</title>
+</head>
+<body>
+    <table class="table" border="1">
+        @*@Model.ToList();*@
+        @{ var currentUser = Model.Where(u => u.Email == ViewBag.CurrentUserEmail).LastOrDefault();}
+        @{var UserName = currentUser.Email; }
+        <caption>User Name: @UserName </caption>
+            <thead>
+            <tr>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>*@
+                <th>
+                    <center>Face Photo</center>
+                </th>
+                <th>
+                    <center>Random Photo</center>
+                </th>
+                <th>
+                    <center>Full Photo</center>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>*@
+                <td>
+                    <center><img src=@currentUser.FacePhotoPath alt="alternatetext" style="width:256px;height:256px;"></center>
+                </td>
+                <td>
+                    <center><img src=@currentUser.AnyPhotoPath alt="alternatetext" style="width:256px;height:256px;"></center>
+                </td>
+                <td>
+                    <center><img src=@currentUser.FullPhotoPath alt="alternatetext" style="width:256px;height:256px;"></center>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
+

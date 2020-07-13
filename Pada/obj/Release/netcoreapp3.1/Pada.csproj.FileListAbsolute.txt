@@ -234,3 +234,14 @@ C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\obj\Release\netcoreapp3.1\static
 C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\obj\Release\netcoreapp3.1\Pada.dll
 C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\obj\Release\netcoreapp3.1\Pada.pdb
 C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\obj\Release\netcoreapp3.1\Pada.genruntimeconfig.cache
+C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\obj\Release\netcoreapp3.1\Razor\Views\PhotoCheck\Index.cshtml.g.cs
+C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\obj\Release\netcoreapp3.1\Razor\Views\PhotoCheck\NewPhotoCheck.cshtml.g.cs
+C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\obj\Release\netcoreapp3.1\Razor\Views\PhotoCheck\UploadedPhotoStatus.cshtml.g.cs
+C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\bin\Release\netcoreapp3.1\ServiceStack.dll
+C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\bin\Release\netcoreapp3.1\ServiceStack.Client.dll
+C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\bin\Release\netcoreapp3.1\ServiceStack.Common.dll
+C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\bin\Release\netcoreapp3.1\ServiceStack.Interfaces.dll
+C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\bin\Release\netcoreapp3.1\ServiceStack.Text.dll
+C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\bin\Release\netcoreapp3.1\System.Private.ServiceModel.dll
+C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\bin\Release\netcoreapp3.1\System.ServiceModel.Primitives.dll
+C:\Users\Alex\source\repos\Alex-Anh-9x\Git\Pada\bin\Release\netcoreapp3.1\System.ServiceModel.dll
